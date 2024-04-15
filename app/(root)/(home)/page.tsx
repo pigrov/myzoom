@@ -1,5 +1,7 @@
+"use client";
+
 import MeetingTypeList from "@/components/MeetingTypeList";
-import React from "react";
+import { DateTime } from "luxon";
 
 const Home = () => {
     const time = new Date().toLocaleTimeString("en-US", {
@@ -14,6 +16,12 @@ const Home = () => {
         day: "numeric",
     });
 
+    const localTime = DateTime.fromISO(new Date().toLocaleTimeString(), { zone: "system" })
+        .setZone("America/New_York")
+        .toFormat("h:mm a");
+
+    console.log(localTime);
+
     return (
         <section className="flex size-full flex-col gap-10 text-white">
             <div className="h-[300px] w-full rounded-[16px] bg-hero bg-cover">
@@ -22,7 +30,7 @@ const Home = () => {
                         Upcoming Meeting at 13:45
                     </h2>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-3xl lg:text-7xl font-extrabold">{time}</h1>
+                        <h1 className="text-3xl lg:text-7xl font-extrabold">{localTime}</h1>
                         <p className="text-lg font-medium text-slate-400">{date}</p>
                     </div>
                 </div>

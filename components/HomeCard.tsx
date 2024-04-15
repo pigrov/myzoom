@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Presentation } from "lucide-react";
 import React from "react";
 
 interface HomeCardProps {
