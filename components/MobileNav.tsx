@@ -20,6 +20,25 @@ const MobileNav = () => {
     const currentStyle = "flex gap-4 p-3 rounded-lg";
     const activeStyle = "font-bold bg-blue-600";
 
+    const NavItem = ({
+        title,
+        href,
+        icon,
+    }: {
+        title: string;
+        href: string;
+        icon: React.ReactNode;
+    }) => {
+        return (
+            <SheetClose asChild>
+                <Link className={cn(currentStyle, pathname === href && activeStyle)} href={href}>
+                    {icon}
+                    <p className="font-semibold">{title}</p>
+                </Link>
+            </SheetClose>
+        );
+    };
+
     return (
         <section className="w-full mex-w-[280px]">
             <Sheet>
@@ -35,63 +54,11 @@ const MobileNav = () => {
                     </SheetClose>
 
                     <div className="flex flex-1 flex-col gap-6 mt-6">
-                        <SheetClose asChild>
-                            <Link
-                                className={cn(currentStyle, pathname === "/" && activeStyle)}
-                                href="/"
-                            >
-                                <Home />
-                                <p className="font-semibold">Home</p>
-                            </Link>
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <Link
-                                className={cn(
-                                    currentStyle,
-                                    pathname.startsWith("/upcoming") && activeStyle
-                                )}
-                                href="/upcoming"
-                            >
-                                <PhoneIncoming />
-                                <p className="font-semibold">Upcoming</p>
-                            </Link>
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <Link
-                                className={cn(
-                                    currentStyle,
-                                    pathname.startsWith("/previous") && activeStyle
-                                )}
-                                href="/previous"
-                            >
-                                <History />
-                                <p className="font-semibold">Previous</p>
-                            </Link>
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <Link
-                                className={cn(
-                                    currentStyle,
-                                    pathname.startsWith("/records") && activeStyle
-                                )}
-                                href="/records"
-                            >
-                                <Voicemail />
-                                <p className="font-semibold">Records</p>
-                            </Link>
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <Link
-                                className={cn(
-                                    currentStyle,
-                                    pathname.startsWith("/room") && activeStyle
-                                )}
-                                href="/room"
-                            >
-                                <SquareActivity />
-                                <p className="font-semibold">Room</p>
-                            </Link>
-                        </SheetClose>
+                        <NavItem title="Home" href="/" icon={<Home />} />
+                        <NavItem title="Upcoming" href="/upcoming" icon={<PhoneIncoming />} />
+                        <NavItem title="Previous" href="/previous" icon={<History />} />
+                        <NavItem title="Records" href="/records" icon={<Voicemail />} />
+                        <NavItem title="Voice" href="/room" icon={<SquareActivity />} />
                     </div>
                 </SheetContent>
             </Sheet>

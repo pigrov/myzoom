@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;
