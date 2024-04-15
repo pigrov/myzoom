@@ -1,38 +1,31 @@
-import { LucideProps } from "lucide-react";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
-
-interface IconProps extends LucideProps {
-    name: keyof typeof dynamicIconImports;
-}
-
 export const sidebarLinks: {
     name: string;
     href: string;
-    icon: keyof typeof dynamicIconImports;
+    icon: string;
 }[] = [
     {
         name: "Home",
         href: "/",
-        icon: "home",
+        icon: "Home",
     },
     {
         name: "Upcoming",
         href: "/upcoming",
-        icon: "phone-incoming",
+        icon: "PhoneIncoming",
     },
     {
         name: "Previous",
         href: "/previous",
-        icon: "history",
+        icon: "History",
     },
     {
         name: "Records",
         href: "/records",
-        icon: "voicemail",
+        icon: "Voicemail",
     },
     {
         name: "Room",
         href: "/room",
-        icon: "square-activity",
+        icon: "SquareActivity",
     },
 ];

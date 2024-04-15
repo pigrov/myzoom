@@ -1,3 +1,5 @@
+import { ClerkProvider } from "@clerk/nextjs";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,17 +18,32 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body className={`${inter.className} bg-zinc-900`}>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    {children}
-                </ThemeProvider>
-            </body>
-        </html>
+        <ClerkProvider
+            appearance={{
+                layout: {
+                    logoImageUrl: "",
+                },
+                variables: {
+                    colorText: "#fff",
+                    colorBackground: "#333",
+                    colorAlphaShade: "#fff",
+                    colorTextSecondary: "#fff",
+                    colorPrimary: "#999",
+                },
+            }}
+        >
+            <html lang="en" suppressHydrationWarning>
+                <body className={`${inter.className} bg-zinc-900`}>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        {children}
+                    </ThemeProvider>
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
