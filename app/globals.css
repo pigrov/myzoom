@@ -80,3 +80,24 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* animation */
+
+.show-block {
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+    0% {
+        animation-timing-function: ease-in;
+        width: 0%;
+    }
+
+    100% {
+        animation-timing-function: ease-in;
+        width: 100%;
+    }
+}
