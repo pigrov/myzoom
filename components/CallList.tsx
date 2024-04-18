@@ -77,9 +77,9 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                         key={(meeting as CallRecording).url || (meeting as Call).id}
                         icon={<PhoneIncoming />}
                         title={
-                            (meeting as Call).state?.custom.description.substring(0, 26) ||
-                            (meeting as CallRecording).filename.substring(0, 26) ||
-                            "No description"
+                            (meeting as Call).state?.custom?.description?.substring(0, 26) ||
+                            (meeting as CallRecording).filename?.substring(0, 26) ||
+                            "Personal Meeting"
                         }
                         date={(meeting as Call).state?.startsAt?.toLocaleString() || "No date"}
                         isPreviousMeeting={type === "ended"}

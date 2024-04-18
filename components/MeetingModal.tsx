@@ -30,7 +30,6 @@ const MeetingModal = ({
 }: MeetingModalProps) => {
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogTrigger>Open</DialogTrigger>
             <DialogContent className="bg-zinc-900 border-none">
                 <DialogHeader>
                     <DialogTitle className="font-bold text-white text-center pb-2">
